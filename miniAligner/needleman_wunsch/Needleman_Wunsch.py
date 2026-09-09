@@ -1,9 +1,5 @@
 import matrix
 
-seq1 = "AACGATAGCTAGCTAG"
-seq2 = "ACCGAAGCGAG"
-
-
 class NeedleWunsch(object):
 
     '''
@@ -101,9 +97,12 @@ class NeedleWunsch(object):
                 print("TRACEBACK STUCK")
                 print("Position:", position)
                 print("i:", i, "j:", j)
+                print("Diagonal:", upper_diag)
+                print("Upper:", upper)
+                print("Left:", left)
                 break
 
-        # If sequence 2 still has characters remaining
+        # If sequence 1 still has characters remaining
         while i > 0:
 
             self.alignment1.append(self.seq1[i - 1])
@@ -119,6 +118,7 @@ class NeedleWunsch(object):
 
             j -= 1
 
+        # Traceback constructs the alignment backwards
         self.alignment1.reverse()
         self.alignment2.reverse()
 
@@ -157,19 +157,21 @@ class NeedleWunsch(object):
         print(alignment2)
 
 
-    def run(self):
+    def run(self, display = False):
         """
         Runs the Needleman-Wunsch algorithm - Included for convenience.
         """
 
         self.fill_matrix()
         self.traceback()
-        self.generate_alignment()
 
-        matrix_query = input("Generate matrix? y or n: ")
+        if display:
+            self.generate_alignment()
 
-        if matrix_query == "y":
-            self.Matrix.generate_matrix()
+            matrix_query = input("Generate matrix? y or n: ")
+
+            if matrix_query == "y":
+                self.Matrix.generate_matrix()
 
 
 
