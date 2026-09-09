@@ -1,9 +1,5 @@
 import matrix
 
-seq1 = "GGCTTCTATGTGCACCACCGATTGATCGTAGCTATTCAG"
-seq2 = "GTACTCTACGTGGCTATGTGCACCACCGATTGATCTGCAG"
-
-
 class NeedleWunsch:
     """
     Performs local sequence alignment using the Smith-Waterman algorithm.
