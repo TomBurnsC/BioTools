@@ -1,6 +1,6 @@
 import matrix
 
-class NeedleWunsch:
+class SmithWaterman(object):
     """
     Performs local sequence alignment using the Smith-Waterman algorithm.
 
