@@ -1,7 +1,12 @@
 class Matrix(object):
 
     '''
-    Constructs matrix according to sequence lengths
+    Constructs matrix according to sequence lengths and method specification
+
+    NW - Needleman-Wunch
+    SW - Smith-Waterman
+    SM - Similarity matrix
+
     '''
 
     def __init__(self, seq1, seq2, method = "NW"):
@@ -10,9 +15,17 @@ class Matrix(object):
         self.invalid = False
 
         # construct raw matrix
-        row = len(seq1) + 1
-        col = len(seq2) + 1
-        self.matrix = [[0 for x in range(col)] for j in range(row)]
+        row = len(seq1)
+        col = len(seq2)
+
+        if method != "SM":
+            row += 1
+            col += 1
+
+            self.matrix = [[0 for x in range(col)] for j in range(row)]
+
+        else:
+            self.matrix = [["-" for x in range(col)] for j in range(row)]
 
         # fill the boundary rows
 
@@ -26,7 +39,7 @@ class Matrix(object):
                 else:
                     self.matrix[index][0] += index * -2
 
-        elif method != "SW":
+        elif method != "SW" and method != "SM":
             print("!Invalid method!")
             self.invalid = True
 
