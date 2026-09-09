@@ -28,6 +28,8 @@ def test_local_alignment():
     assert result["alignment2"] == "ABC", "Alignment2 should be ABC"
     assert result["score"] == 3, "Scoring error"
 
+test_local_alignment()
+
 seq1 = ""
 seq2 = ""
 
