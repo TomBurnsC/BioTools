@@ -1,5 +1,9 @@
 import matrix
 
+seq1 = "GGCTTCTATGTGCACCACCGATTGATCGTAGCTATTCAG"
+seq2 = "GTACTCTACGTGGCTATGTGCACCACCGATTGATCTGCAG"
+
+
 class SmithWaterman(object):
     """
     Performs local sequence alignment using the Smith-Waterman algorithm.
@@ -303,17 +307,19 @@ class SmithWaterman(object):
             self.format_alignment(result)
 
 
-    def run(self):
+    def run(self, display = False):
         """
         Runs the Smith-Waterman algorithm.
         """
 
         self.fill_matrix()
 
-        self.generate_alignments()
+        if display:
 
-        matrix_query = input("Generate matrix? y or n: ")
+            self.generate_alignments()
 
-        if matrix_query == "y":
-            self.Matrix.generate_matrix()
+            matrix_query = input("Generate matrix? y or n: ")
+
+            if matrix_query == "y":
+                self.Matrix.generate_matrix()
 
