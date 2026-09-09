@@ -101,12 +101,9 @@ class NeedleWunsch(object):
                 print("TRACEBACK STUCK")
                 print("Position:", position)
                 print("i:", i, "j:", j)
-                print("Diagonal:", upper_diag)
-                print("Upper:", upper)
-                print("Left:", left)
                 break
 
-        # If sequence 1 still has characters remaining
+        # If sequence 2 still has characters remaining
         while i > 0:
 
             self.alignment1.append(self.seq1[i - 1])
@@ -122,7 +119,6 @@ class NeedleWunsch(object):
 
             j -= 1
 
-        # Traceback constructs the alignment backwards
         self.alignment1.reverse()
         self.alignment2.reverse()
 
