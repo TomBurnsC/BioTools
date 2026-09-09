@@ -1,4 +1,3 @@
-from AlignmentTools.Smith_Waterman import NeedleWunsch
 from Needleman_Wunsch import NeedleWunsch
 
 def test_identical_sequences():
@@ -17,4 +16,8 @@ def test_negative_alignment():
 
 test_negative_alignment()
 
+seq1 = ""
+seq2 = ""
 
+sw = NeedleWunsch(seq1, seq2)
+sw.run()
