@@ -1,4 +1,4 @@
-"""AlignmentGroup: a profile of already-aligned sequences."""
+"""AlignmentGroup: a profile of aligned sequences."""
 
 import math
 
