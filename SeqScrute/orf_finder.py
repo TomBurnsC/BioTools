@@ -10,6 +10,7 @@ stop_codons = {
 }
 
 class ORF_finder:
+
     def __init__(self, sequence):
         self.sequence = list(sequence)
 
@@ -139,12 +140,8 @@ class ORF_finder:
         for frame, seq in self.frames.items():
             self.start_codon_screener(frame, seq)
 
-        for ind, seqs in self.frame_orfs.items():
-            print(ind, seqs)
 
         self.format_output()
-
-
 
 
 
